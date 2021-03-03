@@ -9,6 +9,7 @@ class SearchMapPlaceWidget extends StatefulWidget {
     this.clearIcon = Icons.clear,
     this.iconColor = Colors.blue,
     this.onSelected,
+    this.inputBorder,
     this.onSearch,
     this.language = 'en',
     this.location,
@@ -30,6 +31,9 @@ class SearchMapPlaceWidget extends StatefulWidget {
 
   /// The callback that is called when one Place is selected by the user.
   final void Function(Place place) onSelected;
+
+  /// input border.
+  InputBorder inputBorder;
 
   /// The callback that is called when the user taps on the search icon.
   final void Function(Place place) onSearch;
@@ -238,7 +242,7 @@ class _SearchMapPlaceWidgetState extends State<SearchMapPlaceWidget> with Ticker
   InputDecoration _inputStyle() {
     return InputDecoration(
       hintText: this.widget.placeholder,
-      border: InputBorder.none,
+      border: widget.inputBorder(),
       contentPadding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
       hintStyle: TextStyle(
         color: widget.darkMode ? Colors.grey[100] : Colors.grey[850],
